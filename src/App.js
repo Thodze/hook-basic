@@ -9,6 +9,7 @@ import queryString from 'query-string';
 import PostFilterForm from "./components/PostFilterForm";
 import Clock from "./components/Clock";
 import BetterClock from "./components/BetterClock";
+import MagicBox from "./components/MagicBox";
 
 function App() {
     const [todoList, setTodoList] = useState([
@@ -100,9 +101,10 @@ function App() {
             {/*    pagination={pagination}*/}
             {/*    onPageChange={handlePageChange}*/}
             {/*/>*/}
-            {showClock && <Clock />}
-            {showClock && <BetterClock />}
-            <button onClick={() => setShowClock(false)}>Hide CLock</button>
+            {/*{showClock && <Clock />}*/}
+            {/*{showClock && <BetterClock />}*/}
+            {/*<button onClick={() => setShowClock(false)}>Hide CLock</button>*/}
+            <MagicBox />
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import useClock from "../../hooks/Clock";
+import useClock from "../../hooks/useClock";
 
 function Clock(props) {
 
