@@ -2,6 +2,7 @@ import './App.scss';
 import React, {useState} from "react";
 import ColorBox from "./components/ColorBox";
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 function App() {
     const [todoList, setTodoList] = useState([
@@ -11,12 +12,21 @@ function App() {
     ]);
 
     function handleTodoClick(todo) {
-        console.log(todo)
         const index = todoList.findIndex(x => x.id === todo.id);
         if (index < 0) return;
         const newTodoList = [...todoList];
         newTodoList.splice(index, 1);
         setTodoList(newTodoList);
+    }
+
+    function handleTodoFormSubmit(formValues) {
+        const newTodo = {
+            id: todoList.length + 1,
+            ...formValues
+        };
+        const newTodoLists = [...todoList];
+        newTodoLists.push(newTodo);
+        setTodoList(newTodoLists);
     }
 
     return (
@@ -25,6 +35,8 @@ function App() {
             <ColorBox/>
             <h2>React Hook TodoList</h2>
             <TodoList todos={todoList} onTodoClick={handleTodoClick}/>
+            <h2>React Hook TodoForm</h2>
+            <TodoForm onSubmit={handleTodoFormSubmit}/>
         </div>
     );
 }
